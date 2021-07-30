@@ -126,14 +126,13 @@ const TreeNode = ({
   };
 
   let nodeClasses;
-  if (selected === 'true') {
+  if (selected) {
     nodeClasses = `treeNode ${selectedClass}`;
   } else {
     nodeClasses = 'treeNode';
   }
   /* eslint-disable */
-  console.log(selected);
-  console.log(selectedClass);
+  console.log(nodeClasses);
   /* eslint-enable */
 
   const TreeNodeToolBar = (
