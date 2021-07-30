@@ -31,11 +31,12 @@ const TreeNode = ({
   name,
   checked,
   isOpen,
+  selected,
   children,
   ...restData
 }) => {
   const nodeData = {
-    path, name, checked, isOpen, ...restData,
+    path, name, checked, isOpen, selected, ...restData,
   };
 
   const {
@@ -50,6 +51,7 @@ const TreeNode = ({
     onNameClick,
     showCheckbox,
     readOnly,
+    selectedClass,
   } = useContext(ConfigContext);
 
   const isFolder = !!children;
@@ -115,11 +117,20 @@ const TreeNode = ({
   const handleNameClick = () => {
     const defaultOnClick = selectMe;
     if (onNameClick && typeof onNameClick === 'function') {
-      !isEditing && onNameClick({ defaultOnClick, nodeData, openMe, closeMe });
+      !isEditing && onNameClick({
+        defaultOnClick, nodeData, openMe, closeMe,
+      });
     } else {
       defaultOnClick();
     }
   };
+
+  let nodeClasses;
+  if (selected === 'true') {
+    nodeClasses = `treeNode ${selectedClass}`;
+  } else {
+    nodeClasses = 'treeNode';
+  }
 
   const TreeNodeToolBar = (
     <span className={ iconContainerClassName('TreeNodeToolBar') }>
@@ -184,7 +195,7 @@ const TreeNode = ({
 
   return (
     <>
-      <div className='TreeNode' style={ treeNodeStyle }>
+      <div className={ nodeClasses } style={ treeNodeStyle }>
         { showCheckbox && (
           <CheckBox
             status={ checked }
@@ -237,6 +248,7 @@ TreeNode.propTypes = {
   name: PropTypes.string.isRequired,
   checked: PropTypes.number.isRequired,
   isOpen: PropTypes.bool,
+  selected: PropTypes.string,
 
   children: PropTypes.array,
 };

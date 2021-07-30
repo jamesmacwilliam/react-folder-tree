@@ -22,6 +22,7 @@ const FolderTree = ({
   indentPixels = 30,
   onNameClick = null,
   readOnly = false,
+  selectedClass = null,
 }) => {
   const options = {
     initCheckedStatus,
@@ -50,6 +51,7 @@ const FolderTree = ({
     indentPixels,
     showCheckbox,
     readOnly,
+    selectedClass,
   };
 
   /* ----------
@@ -93,6 +95,7 @@ FolderTree.propTypes = {
   onNameClick: PropTypes.func,
   showCheckbox: PropTypes.bool,
   readOnly: PropTypes.bool,
+  selectedClass: PropTypes.string,
 };
 
 export {
