@@ -131,6 +131,8 @@ const TreeNode = ({
   } else {
     nodeClasses = 'treeNode';
   }
+  console.log(selected);
+  console.log(selectedClass);
 
   const TreeNodeToolBar = (
     <span className={ iconContainerClassName('TreeNodeToolBar') }>
