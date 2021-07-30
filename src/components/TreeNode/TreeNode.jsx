@@ -131,9 +131,6 @@ const TreeNode = ({
   } else {
     nodeClasses = 'treeNode';
   }
-  /* eslint-disable */
-  console.log(nodeClasses);
-  /* eslint-enable */
 
   const TreeNodeToolBar = (
     <span className={ iconContainerClassName('TreeNodeToolBar') }>
