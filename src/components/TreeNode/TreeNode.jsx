@@ -132,8 +132,8 @@ const TreeNode = ({
     nodeClasses = 'treeNode';
   }
   /* eslint-disable */
-  alert(selected);
-  alert(selectedClass);
+  console.log(selected);
+  console.log(selectedClass);
   /* eslint-enable */
 
   const TreeNodeToolBar = (
