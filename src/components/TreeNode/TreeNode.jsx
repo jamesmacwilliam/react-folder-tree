@@ -127,9 +127,9 @@ const TreeNode = ({
 
   let nodeClasses;
   if (selected) {
-    nodeClasses = `treeNode ${selectedClass}`;
+    nodeClasses = `TreeNode ${selectedClass}`;
   } else {
-    nodeClasses = 'treeNode';
+    nodeClasses = 'TreeNode';
   }
 
   const TreeNodeToolBar = (
